@@ -14,10 +14,13 @@
 
 int main(void) {
     /* Insert DDR and PORT initializations */
-
+	DDRA = 0x00; PORTA = 0xFF; 
+	DDRB = 0xFF; PORTB = 0x00;
     /* Insert your solution below */
+	unsigned char tempA;
     while (1) {
-
+	tempA = PINA;
+	PORTB = (tempA & 0x01) ? 0x01 : 0x02;
     }
     return 1;
 }
